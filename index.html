@@ -1,38 +1,279 @@
-<!doctype html><html lang="ar" dir="rtl"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>welcome × william</title><meta name="description" content="welcome × william — خلفيات رقمية، تطبيقات وملابس">
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#6d4aff">
+<title>Welcome × William | متجر رقمي</title>
+<meta name="description" content="متجر Welcome × William للمنتجات الرقمية والألعاب والخلفيات والتطبيقات.">
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,Tahoma,sans-serif;background:#f6f7fb;color:#171923}
-button,input,select{font:inherit}button{cursor:pointer}.hide{display:none!important}
-header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #e7e8ef}.nav{max-width:1200px;margin:auto;padding:13px 18px;display:flex;gap:10px;align-items:center}.brand b{font-size:26px;color:#5b43d6}.brand small{display:block;color:#777}.search{flex:1;padding:11px;border:1px solid #ddd;border-radius:11px}.btn{border:1px solid #ddd;background:#fff;padding:10px 13px;border-radius:10px}.primary{background:#5b43d6;color:#fff;border-color:#5b43d6}
-main{max-width:1200px;margin:auto;padding:22px 18px}.hero{padding:42px 28px;border-radius:24px;background:linear-gradient(135deg,#171923,#5b43d6);color:#fff;display:flex;justify-content:space-between;align-items:center}.hero h1{font-size:42px;margin:12px 0}.art{font-size:90px}.cats{display:flex;gap:9px;flex-wrap:wrap;margin:22px 0}.cat{border:1px solid #ddd;background:#fff;padding:10px 14px;border-radius:99px}.cat.on{background:#5b43d6;color:#fff}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card,.panel{background:#fff;border-radius:17px;padding:14px;box-shadow:0 7px 22px #1719230b}.visual{height:185px;border-radius:13px;background:linear-gradient(135deg,#ebe9ff,#faf9ff);display:flex;align-items:center;justify-content:center;font-size:68px}.card h3{margin:12px 0 6px}.muted{color:#707582;font-size:13px}.price{font-size:20px;font-weight:900;color:#5b43d6;margin-top:8px}.card .btn{width:100%;margin-top:10px;background:#171923;color:#fff}footer{margin-top:50px;background:#171923;color:#fff;padding:28px;text-align:center}.links{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin:12px}.links button{background:none;border:0;color:#fff}.modal{position:fixed;inset:0;background:#0008;z-index:50;display:flex;align-items:center;justify-content:center;padding:15px}.box{background:#fff;width:min(720px,100%);max-height:90vh;overflow:auto;border-radius:20px;padding:22px}.close{float:left;border:0;padding:7px;border-radius:8px}.form{display:grid;gap:11px}.form input,.form textarea,.form select{width:100%;padding:11px;border:1px solid #ddd;border-radius:10px}.row{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid #eee}.notice{padding:13px;border-radius:12px;background:#fff8df;border:1px solid #f0dda0;margin:12px 0}.cancel{background:#b42318!important;color:white!important;border-color:#b42318!important}@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.grid{grid-template-columns:1fr}.search{display:none}.hero h1{font-size:31px}.art{display:none}}
-</style></head><body>
-<header><div class="nav"><div class="brand"><b>welcome</b><small>william</small></div><input id="q" class="search" placeholder="ابحث عن منتج..." oninput="render()"><button class="btn" onclick="account()">👤 الحساب</button><button class="btn primary" onclick="cart()">🛒 <span id="cnt">0</span></button></div></header>
-<main><section class="hero"><div><small>WELCOME × WILLIAM</small><h1>كل ما تحبه، في مكان واحد.</h1><p>خلفيات رقمية • تطبيقات • ملابس</p><button class="btn primary" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">تسوّق الآن</button></div><div class="art">✦</div></section>
-<section id="shop"><div class="cats"><button class="cat on" onclick="cat('all',this)">الكل</button><button class="cat" onclick="cat('wallpaper',this)">🌌 خلفيات</button><button class="cat" onclick="cat('apps',this)">📱 تطبيقات</button><button class="cat" onclick="cat('clothes',this)">👕 ملابس</button></div><div id="grid" class="grid"></div></section>
-<section class="panel" style="margin-top:25px"><h2>قبل الإطلاق</h2><p class="muted">أكمل بيانات النشاط، سياسة الخصوصية، شروط البيع، الإرجاع، الشحن، ومزود الدفع في ملف الإعدادات. لا تضع مفاتيح سرية في هذا الملف أو في JavaScript الواجهة.</p></section></main>
-<footer><b>welcome × william</b><div class="links"><button onclick="legal('terms')">الشروط</button><button onclick="legal('privacy')">الخصوصية</button><button onclick="legal('returns')">الإرجاع</button><button onclick="legal('contact')">التواصل</button><button onclick="cancelOrder()">إلغاء/سحب طلب</button><button onclick="admin()">الإدارة</button></div><small>© 2026 welcome — william</small></footer>
-<div id="modal" class="modal hide"><div class="box"><button class="close" onclick="closeM()">✕</button><div id="content"></div></div></div>
+:root{
+  --bg:#f6f7fb;--card:#fff;--text:#171827;--muted:#73778a;--line:#e8e9f1;
+  --primary:#6847e8;--primary2:#8b5cf6;--dark:#151526;--good:#16a34a;--danger:#dc2626;
+  --shadow:0 14px 40px rgba(22,18,55,.09)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif}
+button,input,select{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+.container{max-width:1180px;margin:auto;padding:0 18px}
+header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{min-height:72px;display:flex;align-items:center;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;min-width:170px}
+.logo-mark{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--primary),#9b7bff);display:grid;place-items:center;color:#fff;font-weight:900;font-size:19px;box-shadow:0 9px 22px #6847e833}
+.logo b{font-size:21px}.logo small{display:block;color:var(--muted);margin-top:2px}
+.search-wrap{position:relative;flex:1}
+.search{width:100%;height:44px;border:1px solid var(--line);background:#f8f8fc;border-radius:13px;padding:0 44px 0 15px;outline:none}
+.search:focus{border-color:#9a83f2;box-shadow:0 0 0 4px #6847e812}
+.search-icon{position:absolute;right:14px;top:11px;color:#85899a}
+.nav-actions{display:flex;gap:8px}
+.icon-btn,.btn{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:10px 13px}
+.icon-btn{width:44px;height:44px;padding:0;display:grid;place-items:center}
+.primary{background:linear-gradient(135deg,var(--primary),var(--primary2));border-color:transparent;color:#fff;box-shadow:0 10px 22px #6847e82b}
+.cart-count{display:inline-grid;place-items:center;min-width:21px;height:21px;padding:0 5px;border-radius:20px;background:#fff;color:var(--primary);font-size:12px;font-weight:900;margin-right:5px}
+.hero{margin-top:24px;border-radius:28px;padding:38px 34px;background:
+ radial-gradient(circle at 85% 20%,#a48cff44 0 13%,transparent 30%),
+ linear-gradient(135deg,#151526 0%,#33216e 55%,#6847e8 100%);color:#fff;display:grid;grid-template-columns:1.25fr .75fr;align-items:center;overflow:hidden;box-shadow:0 22px 55px #34216e33}
+.hero-badge{display:inline-flex;padding:7px 11px;border-radius:99px;background:#ffffff18;border:1px solid #ffffff24;font-size:13px}
+.hero h1{font-size:clamp(32px,5vw,58px);line-height:1.12;margin:15px 0 10px}
+.hero p{color:#e8e4ff;line-height:1.8;max-width:680px}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.hero .ghost{background:#ffffff12;border:1px solid #ffffff2e;color:#fff}
+.hero-art{display:grid;place-items:center;min-height:260px;position:relative}
+.orb{width:230px;height:230px;border-radius:50%;background:linear-gradient(145deg,#ffffff2e,#ffffff08);border:1px solid #ffffff25;box-shadow:inset 0 0 45px #ffffff15,0 0 70px #8d6cff33;display:grid;place-items:center;font-size:90px;transform:rotate(-8deg)}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:34px 0 16px}
+.section-head h2{margin:0;font-size:25px}.muted{color:var(--muted)}
+.filters{display:flex;gap:9px;overflow:auto;padding-bottom:5px}
+.filter{white-space:nowrap;border:1px solid var(--line);background:var(--card);border-radius:99px;padding:10px 15px}
+.filter.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.sort{border:1px solid var(--line);background:var(--card);border-radius:11px;padding:10px 12px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);transition:.2s;position:relative}
+.card:hover{transform:translateY(-4px);box-shadow:0 20px 45px rgba(22,18,55,.13)}
+.product-img{height:205px;display:grid;place-items:center;font-size:72px;background:linear-gradient(145deg,#ece9ff,#fafaff)}
+.fav{position:absolute;top:11px;left:11px;width:37px;height:37px;border-radius:50%;border:1px solid #ffffffaa;background:#fff;display:grid;place-items:center}
+.fav.on{color:#e11d48}
+.card-body{padding:15px}
+.tag{display:inline-flex;padding:5px 8px;border-radius:8px;background:#f0edff;color:#5b3fd2;font-size:11px;font-weight:700}
+.card h3{font-size:17px;margin:10px 0 5px;line-height:1.5}
+.desc{font-size:12px;color:var(--muted);min-height:36px;line-height:1.5}
+.rating{font-size:12px;margin-top:8px}.rating span{color:#f59e0b}
+.price-row{display:flex;justify-content:space-between;align-items:center;margin-top:13px}
+.price{font-size:20px;font-weight:900;color:var(--primary)}
+.add{width:100%;margin-top:12px}
+.empty{padding:35px;text-align:center;background:var(--card);border:1px dashed var(--line);border-radius:18px;color:var(--muted)}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:36px 0}
+.feature{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;gap:12px;align-items:flex-start}
+.feature .ico{font-size:26px}
+.feature b{display:block;margin-bottom:5px}
+footer{margin-top:45px;background:var(--dark);color:#fff;padding:35px 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}
+footer p,footer small{color:#bfc0cf;line-height:1.8}
+.modal{position:fixed;inset:0;background:#070711aa;z-index:100;display:flex;align-items:flex-end;justify-content:center;padding:14px}
+.modal.hide{display:none}
+.sheet{width:min(760px,100%);max-height:92vh;overflow:auto;background:var(--card);border-radius:24px;padding:20px;box-shadow:0 25px 80px #0005}
+.modal-head{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.close{border:0;background:#f1f1f6;width:38px;height:38px;border-radius:10px}
+.cart-row{display:grid;grid-template-columns:58px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.thumb{width:58px;height:58px;border-radius:12px;background:#f0edff;display:grid;place-items:center;font-size:28px}
+.qty{display:flex;align-items:center;gap:7px;margin-top:7px}
+.qty button{border:1px solid var(--line);background:#fff;width:28px;height:28px;border-radius:8px}
+.total{display:flex;justify-content:space-between;font-size:19px;font-weight:900;padding:18px 0}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%) translateY(120px);z-index:200;background:#171827;color:#fff;padding:12px 17px;border-radius:12px;box-shadow:0 15px 40px #0004;transition:.25s}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.detail{display:grid;grid-template-columns:280px 1fr;gap:20px}
+.detail-img{min-height:260px;border-radius:18px;background:linear-gradient(145deg,#ece9ff,#fafaff);display:grid;place-items:center;font-size:100px}
+.note{padding:12px;border-radius:12px;background:#f7f5ff;color:#5540a8;font-size:13px;line-height:1.7}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}.hero-art{display:none}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.nav{flex-wrap:wrap;padding:10px 12px}.logo{min-width:auto}.logo-mark{width:40px;height:40px}.search-wrap{order:3;flex-basis:100%}.hero{padding:28px 22px}.features{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.product-img{height:145px;font-size:55px}.card-body{padding:11px}.card h3{font-size:14px}.price{font-size:17px}.footer-grid{grid-template-columns:1fr}.detail{grid-template-columns:1fr}.detail-img{min-height:210px}.nav-actions .account-btn{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="#">
+      <div class="logo-mark">W</div>
+      <div><b>welcome</b><small>william store</small></div>
+    </a>
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input id="search" class="search" placeholder="ابحث عن منتج، تطبيق، لعبة أو خلفية..." oninput="render()">
+    </div>
+    <div class="nav-actions">
+      <button class="icon-btn" onclick="toggleTheme()" title="الوضع الليلي">🌙</button>
+      <button class="btn account-btn" onclick="account()">👤 الحساب</button>
+      <button class="btn primary" onclick="openCart()">🛒 <span id="count" class="cart-count">0</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <div>
+      <span class="hero-badge">✨ متجر رقمي عصري</span>
+      <h1>كل ما تحبه،<br>في مكان واحد.</h1>
+      <p>خلفيات فخمة، تطبيقات وقوالب، ألعاب وحزم رقمية ومنتجات رقمية مختارة بعناية.</p>
+      <div class="hero-actions">
+        <button class="btn primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">تسوّق الآن</button>
+        <button class="btn ghost" onclick="showCategory('wallpaper')">استكشف الخلفيات</button>
+      </div>
+    </div>
+    <div class="hero-art"><div class="orb">✦</div></div>
+  </section>
+
+  <div class="section-head" id="products">
+    <div><h2>منتجاتنا</h2><div class="muted">اختر قسمًا أو ابحث عن منتج</div></div>
+    <select id="sort" class="sort" onchange="render()">
+      <option value="featured">الأكثر تميزًا</option>
+      <option value="low">السعر: من الأقل</option>
+      <option value="high">السعر: من الأعلى</option>
+      <option value="name">الاسم</option>
+    </select>
+  </div>
+
+  <div class="filters">
+    <button class="filter active" data-cat="all" onclick="showCategory('all')">الكل</button>
+    <button class="filter" data-cat="wallpaper" onclick="showCategory('wallpaper')">🌌 خلفيات</button>
+    <button class="filter" data-cat="apps" onclick="showCategory('apps')">📱 تطبيقات</button>
+    <button class="filter" data-cat="games" onclick="showCategory('games')">🎮 ألعاب وحزم</button>
+    <button class="filter" data-cat="digital" onclick="showCategory('digital')">💎 منتجات رقمية</button>
+  </div>
+
+  <div id="grid" class="grid" style="margin-top:16px"></div>
+
+  <section class="features">
+    <div class="feature"><div class="ico">⚡</div><div><b>تسليم رقمي سريع</b><span class="muted">المنتجات الرقمية جاهزة للتسليم بعد إتمام الطلب.</span></div></div>
+    <div class="feature"><div class="ico">🔒</div><div><b>تجربة آمنة</b><span class="muted">لا نضع أي مفاتيح دفع سرية داخل الواجهة.</span></div></div>
+    <div class="feature"><div class="ico">💬</div><div><b>دعم العملاء</b><span class="muted">سنضيف التواصل والطلبات الحقيقية في المرحلة التالية.</span></div></div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div><h2>welcome × william</h2><p>متجر للمنتجات الرقمية: خلفيات، تطبيقات، ألعاب وحزم ومنتجات رقمية.</p><small>© 2026 Welcome Store</small></div>
+    <div><h3>المتجر</h3><p>الخلفيات<br>التطبيقات<br>الألعاب والحزم<br>المنتجات الرقمية</p></div>
+    <div><h3>المساعدة</h3><p>الشروط والأحكام<br>الخصوصية<br>الإرجاع<br>التواصل</p></div>
+  </div>
+</footer>
+
+<div id="modal" class="modal hide" onclick="if(event.target===this)closeModal()">
+  <div class="sheet" id="sheet"></div>
+</div>
+<div id="toast" class="toast"></div>
+
 <script>
-const P=[
-[1,'wallpaper','باقة خلفيات 4K',5.99,'🌌',1],[2,'wallpaper','خلفية مخصصة بالاسم',3.99,'✨',1],[3,'wallpaper','باقة خلفيات هاتف',4.99,'📱',1],
-[4,'apps','قالب تطبيق Flutter',29,'📲',1],[5,'apps','قالب Marketplace',59,'🛒',1],[6,'apps','حزمة UI للتطبيق',19,'🎨',1],
-[7,'clothes','تيشيرت william',24.99,'👕',0],[8,'clothes','هودي welcome',39.99,'🧥',0],[9,'clothes','كاب welcome',17.99,'🧢',0],[10,'clothes','بنطال كاجوال',34.99,'👖',0]
-].map(x=>({id:x[0],c:x[1],n:x[2],p:x[3],i:x[4],d:x[5]}));
-let C='all',B=JSON.parse(localStorage.b||'[]'),O=JSON.parse(localStorage.o||'[]'),U=JSON.parse(localStorage.u||'null');
-const $=x=>document.getElementById(x);function save(){localStorage.b=JSON.stringify(B);localStorage.o=JSON.stringify(O);localStorage.u=JSON.stringify(U);$('cnt').textContent=B.length}
-function cat(c,b){C=c;document.querySelectorAll('.cat').forEach(x=>x.classList.remove('on'));b.classList.add('on');render()}
-function render(){let q=$('q').value.toLowerCase(),a=P.filter(x=>(C==='all'||x.c===C)&&x.n.toLowerCase().includes(q));$('grid').innerHTML=a.map(x=>`<article class="card"><div class="visual">${x.i}</div><h3>${x.n}</h3><div class="muted">${x.d?'منتج رقمي':'منتج ملابس'}</div><div class="price">€${x.p.toFixed(2)}</div><button class="btn" onclick="add(${x.id})">أضف للسلة</button></article>`).join('')}
-function add(id){B.push(id);save();alert('تمت الإضافة')}
-function open(x){$('content').innerHTML=x;$('modal').classList.remove('hide')}function closeM(){$('modal').classList.add('hide')}
-function cart(){let a=B.map(id=>P.find(x=>x.id===id)).filter(Boolean),t=a.reduce((s,x)=>s+x.p,0);open(`<h2>🛒 السلة</h2>${a.map(x=>`<div class="row">${x.i} ${x.n}<b>€${x.p.toFixed(2)}</b></div>`).join('')||'<p>السلة فارغة.</p>'}<div class="row"><b>الإجمالي</b><b>€${t.toFixed(2)}</b></div>${a.length?'<button class="btn primary" style="width:100%" onclick="checkout()">متابعة الدفع</button>':''}`)}
-function checkout(){open(`<h2>إتمام الطلب</h2><div class="notice">هذه الحزمة لا تشغّل تحصيل الأموال مباشرة. اربط مزود دفع معتمد بعد إنشاء حساب النشاط، واحتفظ بمفتاحه السري على الخادم فقط.</div><div class="form"><input id="n" placeholder="الاسم الكامل"><input id="e" type="email" placeholder="البريد الإلكتروني"><input id="a" placeholder="العنوان (للملابس)"><button class="btn primary" onclick="testOrder()">إنشاء طلب تجريبي</button></div>`)}
-function testOrder(){let n=$('n').value,e=$('e').value;if(!n||!e)return alert('أكمل البيانات');let a=B.map(id=>P.find(x=>x.id===id)).filter(Boolean),t=a.reduce((s,x)=>s+x.p,0),id='WW-'+Date.now().toString().slice(-7);O.unshift({id,n,e,t,date:new Date().toLocaleString('ar'),status:'تجريبي',items:a.map(x=>x.n)});U={n,e};B=[];save();open(`<h2>✅ الطلب ${id}</h2><p>الإجمالي €${t.toFixed(2)}</p><p class="muted">لم يتم خصم أي مبلغ في النسخة المحلية.</p>`)}
-function account(){if(!U)return open(`<h2>👤 الحساب</h2><div class="form"><input id="un" placeholder="الاسم"><input id="ue" placeholder="البريد"><button class="btn primary" onclick="login()">دخول</button></div>`);let a=O.filter(x=>x.e===U.e);open(`<h2>👤 ${U.n}</h2><p>${U.e}</p>${a.map(o=>`<div class="row"><span>${o.id}<br>${o.date}</span><b>€${o.t.toFixed(2)}</b></div>`).join('')||'<p>لا توجد طلبات.</p>'}`)}
-function login(){let n=$('un').value,e=$('ue').value;if(!n||!e)return;U={n,e};save();account()}
-function cancelOrder(){open(`<h2>إلغاء/سحب طلب</h2><p class="muted">استخدم هذا النموذج لطلب إلغاء. في الإنتاج يجب ربطه بنظام الطلبات وإرسال تأكيد للعميل.</p><div class="form"><input id="oid" placeholder="رقم الطلب"><input id="ce" type="email" placeholder="البريد المستخدم في الطلب"><textarea id="reason" placeholder="السبب (اختياري)"></textarea><button class="btn cancel" onclick="requestCancel()">طلب الإلغاء</button></div>`)}
-function requestCancel(){let id=$('oid').value,e=$('ce').value;if(!id||!e)return alert('أدخل رقم الطلب والبريد');let o=O.find(x=>x.id===id&&x.e===e);if(o){o.status='طلب إلغاء';localStorage.o=JSON.stringify(O);alert('تم تسجيل طلب الإلغاء التجريبي')}else alert('لم يتم العثور على الطلب')}
-function legal(t){let m={terms:'<h2>الشروط والأحكام</h2><p>استبدل هذه الصفحة بالنص النهائي الذي يراجع بيانات النشاط، الأسعار، الدفع، التسليم، الضمان، الإلغاء والاستثناءات للمنتجات الرقمية.</p>',privacy:'<h2>الخصوصية</h2><p>يجب توضيح البيانات التي تجمعها، سبب استخدامها، مدة الاحتفاظ بها، والحقوق المتاحة للعميل وفق GDPR.</p>',returns:'<h2>الإرجاع والإلغاء</h2><p>يجب توضيح فترة الانسحاب القانونية والاستثناءات، مع نموذج الانسحاب وزر الإلغاء.</p>',contact:'<h2>التواصل</h2><p>أضف الاسم القانوني والعنوان والبريد والهاتف ورقم KVK وVAT هنا قبل النشر.</p>'};open(m[t])}
-function admin(){let r=O.reduce((s,x)=>s+x.t,0);open(`<h2>⚙️ الإدارة</h2><p>المنتجات: ${P.length} | الطلبات: ${O.length} | المبيعات التجريبية: €${r.toFixed(2)}</p><div class="notice">في الإنتاج يجب استبدال هذه اللوحة بمصادقة حقيقية وقاعدة بيانات آمنة.</div>`)}
+const products=[
+ {id:1,cat:'wallpaper',name:'باقة خلفيات 4K فاخرة',price:5.99,icon:'🌌',rating:4.9,desc:'مجموعة خلفيات عالية الدقة للهاتف والكمبيوتر.'},
+ {id:2,cat:'wallpaper',name:'خلفية مخصصة بالاسم',price:3.99,icon:'✨',rating:4.8,desc:'تصميم رقمي مخصص باسم العميل.'},
+ {id:3,cat:'wallpaper',name:'باقة خلفيات ليلية',price:4.99,icon:'🌙',rating:4.9,desc:'خلفيات داكنة وأنيقة بجودة عالية.'},
+ {id:4,cat:'apps',name:'قالب تطبيق Flutter',price:29,icon:'📱',rating:4.8,desc:'قالب واجهة تطبيق قابل للتخصيص للمطورين.'},
+ {id:5,cat:'apps',name:'قالب متجر إلكتروني',price:59,icon:'🛒',rating:4.9,desc:'واجهة متجر حديثة مع صفحات ومنتجات جاهزة.'},
+ {id:6,cat:'apps',name:'حزمة UI للتطبيقات',price:19,icon:'🎨',rating:4.7,desc:'عناصر واجهة رقمية لتسريع تصميم التطبيقات.'},
+ {id:7,cat:'games',name:'حزمة ألعاب رقمية',price:14.99,icon:'🎮',rating:4.7,desc:'حزمة رقمية للألعاب والمحتوى القابل للتنزيل.'},
+ {id:8,cat:'games',name:'حزمة أيقونات للألعاب',price:9.99,icon:'🕹️',rating:4.8,desc:'أيقونات وعناصر رسومية لمشاريع الألعاب.'},
+ {id:9,cat:'games',name:'باقة مؤثرات صوتية للألعاب',price:12.99,icon:'🔊',rating:4.6,desc:'مؤثرات صوتية رقمية لمشاريع الألعاب.'},
+ {id:10,cat:'digital',name:'حزمة تصاميم سوشيال ميديا',price:17.99,icon:'💎',rating:4.9,desc:'قوالب رقمية جاهزة لمنشورات وقصص التواصل.'},
+ {id:11,cat:'digital',name:'حزمة خطوط عربية فاخرة',price:11.99,icon:'🔤',rating:4.8,desc:'مجموعة خطوط مرخصة للاستخدام في التصميم.'},
+ {id:12,cat:'digital',name:'حزمة قوالب Canva',price:15.99,icon:'🧩',rating:4.7,desc:'قوالب قابلة للتعديل للتصميم السريع.'}
+];
+
+let category='all';
+let cart=JSON.parse(localStorage.getItem('ww_cart')||'[]');
+let favs=JSON.parse(localStorage.getItem('ww_favs')||'[]');
+
+const money=n=>'€'+n.toFixed(2);
+const save=()=>{localStorage.setItem('ww_cart',JSON.stringify(cart));localStorage.setItem('ww_favs',JSON.stringify(favs));updateCount()};
+const product=id=>products.find(p=>p.id===id);
+
+function updateCount(){document.getElementById('count').textContent=cart.reduce((s,x)=>s+x.qty,0)}
+function showCategory(c){
+ category=c;
+ document.querySelectorAll('.filter').forEach(b=>b.classList.toggle('active',b.dataset.cat===c));
+ render();
+ document.getElementById('products').scrollIntoView({behavior:'smooth'});
+}
+function render(){
+ const q=document.getElementById('search').value.trim().toLowerCase();
+ const sort=document.getElementById('sort').value;
+ let arr=products.filter(p=>(category==='all'||p.cat===category)&&(p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q)));
+ if(sort==='low')arr.sort((a,b)=>a.price-b.price);
+ if(sort==='high')arr.sort((a,b)=>b.price-a.price);
+ if(sort==='name')arr.sort((a,b)=>a.name.localeCompare(b.name,'ar'));
+ document.getElementById('grid').innerHTML=arr.length?arr.map(card).join(''):'<div class="empty" style="grid-column:1/-1">لا توجد منتجات مطابقة للبحث.</div>';
+}
+function card(p){
+ const fav=favs.includes(p.id);
+ return `<article class="card">
+   <button class="fav ${fav?'on':''}" onclick="toggleFav(${p.id})">${fav?'♥':'♡'}</button>
+   <div class="product-img">${p.icon}</div>
+   <div class="card-body">
+     <span class="tag">${label(p.cat)}</span>
+     <h3>${p.name}</h3>
+     <div class="desc">${p.desc}</div>
+     <div class="rating"><span>★★★★★</span> ${p.rating}</div>
+     <div class="price-row"><div class="price">${money(p.price)}</div><button class="icon-btn" onclick="details(${p.id})">👁️</button></div>
+     <button class="btn primary add" onclick="add(${p.id})">أضف للسلة</button>
+   </div>
+ </article>`;
+}
+function label(c){return {wallpaper:'خلفيات',apps:'تطبيقات',games:'ألعاب وحزم',digital:'منتجات رقمية'}[c]}
+function toggleFav(id){favs=favs.includes(id)?favs.filter(x=>x!==id):[...favs,id];save();render();toast(favs.includes(id)?'أضيف للمفضلة ❤️':'أزيل من المفضلة')}
+function add(id){
+ const item=cart.find(x=>x.id===id);
+ if(item)item.qty++;
+ else cart.push({id,qty:1});
+ save();toast('تمت إضافة المنتج إلى السلة 🛒');
+}
+function changeQty(id,delta){
+ const x=cart.find(i=>i.id===id); if(!x)return;
+ x.qty+=delta; if(x.qty<=0)cart=cart.filter(i=>i.id!==id);
+ save();openCart();
+}
+function removeItem(id){cart=cart.filter(x=>x.id!==id);save();openCart()}
+function openCart(){
+ const items=cart.map(x=>({...product(x.id),qty:x.qty})).filter(Boolean);
+ const total=items.reduce((s,x)=>s+x.price*x.qty,0);
+ document.getElementById('sheet').innerHTML=`<div class="modal-head"><h2>🛒 سلة المشتريات</h2><button class="close" onclick="closeModal()">✕</button></div>
+ ${items.length?items.map(x=>`<div class="cart-row"><div class="thumb">${x.icon}</div><div><b>${x.name}</b><div class="muted">${money(x.price)} للقطعة</div><div class="qty"><button onclick="changeQty(${x.id},-1)">−</button><b>${x.qty}</b><button onclick="changeQty(${x.id},1)">+</button><button class="icon-btn" style="width:28px;height:28px" onclick="removeItem(${x.id})">🗑️</button></div></div><b>${money(x.price*x.qty)}</b></div>`).join(''):'<div class="empty" style="margin-top:16px">السلة فارغة حاليًا.<br>أضف بعض المنتجات لتبدأ.</div>'}
+ ${items.length?`<div class="total"><span>الإجمالي</span><span>${money(total)}</span></div><div class="note">الدفع الحقيقي والتسليم الآمن سيتم ربطهما في المرحلة التالية. هذه الواجهة لا تجمع أموالًا حقيقية.</div><button class="btn primary" style="width:100%;margin-top:12px" onclick="checkoutDemo()">متابعة الطلب</button>`:''}`;
+ openModal();
+}
+function details(id){
+ const p=product(id);
+ document.getElementById('sheet').innerHTML=`<div class="modal-head"><h2>تفاصيل المنتج</h2><button class="close" onclick="closeModal()">✕</button></div>
+ <div class="detail" style="margin-top:16px"><div class="detail-img">${p.icon}</div><div><span class="tag">${label(p.cat)}</span><h2>${p.name}</h2><p class="muted" style="line-height:1.9">${p.desc}</p><div class="rating"><span>★★★★★</span> ${p.rating}</div><h2 style="color:var(--primary)">${money(p.price)}</h2><div class="note">منتج رقمي تجريبي في هذه المرحلة. سنضيف التسليم الآمن بعد ربط قاعدة البيانات والدفع.</div><button class="btn primary" style="width:100%;margin-top:14px" onclick="add(${p.id});closeModal()">أضف للسلة</button></div></div>`;
+ openModal();
+}
+function checkoutDemo(){
+ const total=cart.reduce((s,x)=>s+(product(x.id)?.price||0)*x.qty,0);
+ document.getElementById('sheet').innerHTML=`<div class="modal-head"><h2>📦 متابعة الطلب</h2><button class="close" onclick="closeModal()">✕</button></div>
+ <p>إجمالي الطلب: <b>${money(total)}</b></p><div class="note">هذه نسخة الواجهة فقط. لا يتم خصم أي مبلغ حقيقي. في المرحلة التالية سنضيف الحسابات وقاعدة البيانات والدفع.</div><div style="display:grid;gap:10px;margin-top:15px"><input id="demoName" class="search" placeholder="الاسم الكامل"><input id="demoEmail" class="search" placeholder="البريد الإلكتروني"><button class="btn primary" onclick="fakeOrder()">إنشاء طلب تجريبي</button></div>`;
+}
+function fakeOrder(){
+ const n=document.getElementById('demoName').value.trim(),e=document.getElementById('demoEmail').value.trim();
+ if(!n||!e){toast('أكمل الاسم والبريد');return}
+ const order='WW-'+Date.now().toString().slice(-7);
+ cart=[];save();
+ document.getElementById('sheet').innerHTML=`<div class="modal-head"><h2>✅ تم إنشاء الطلب</h2><button class="close" onclick="closeModal()">✕</button></div><div class="empty" style="margin-top:16px"><h2>${order}</h2><p>تم إنشاء طلب تجريبي باسم ${n}.</p><p class="muted">لن يتم تحصيل أي مبلغ في هذه النسخة.</p></div>`;
+}
+function account(){document.getElementById('sheet').innerHTML=`<div class="modal-head"><h2>👤 الحساب</h2><button class="close" onclick="closeModal()">✕</button></div><p class="muted">تسجيل الحساب الحقيقي وقاعدة البيانات سيتم إضافتهما في المرحلة التالية.</p><div class="note">يمكنك الآن تصفح المنتجات واستخدام السلة بشكل كامل داخل المتصفح.</div>`;openModal()}
+function openModal(){document.getElementById('modal').classList.remove('hide')}
+function closeModal(){document.getElementById('modal').classList.add('hide')}
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window.__toast);window.__toast=setTimeout(()=>t.classList.remove('show'),1800)}
+function toggleTheme(){
+ document.body.classList.toggle('dark');
+ const dark=document.body.classList.contains('dark');
+ document.documentElement.style.setProperty('--bg',dark?'#0e0f18':'#f6f7fb');
+ document.documentElement.style.setProperty('--card',dark?'#171925':'#fff');
+ document.documentElement.style.setProperty('--text',dark?'#f4f4f7':'#171827');
+ document.documentElement.style.setProperty('--muted',dark?'#a9acbd':'#73778a');
+ document.documentElement.style.setProperty('--line',dark?'#292c3d':'#e8e9f1');
+ localStorage.setItem('ww_dark',dark?'1':'0');
+}
+if(localStorage.getItem('ww_dark')==='1')toggleTheme();
 save();render();
-</script></body></html>
+</script>
+</body>
+</html>
