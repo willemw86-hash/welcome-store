@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>William Store</title>
+<style>
+:root{--p:#6d45e8;--p2:#8d63ff;--bg:#f5f6fb;--card:#fff;--text:#171525;--muted:#77758a;--line:#e7e5ef}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Tahoma,sans-serif;background:var(--bg);color:var(--text)}
+button,input{font:inherit}button{cursor:pointer;border:0}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.top{max-width:1100px;margin:auto;padding:16px 22px;display:flex;align-items:center;gap:14px}
+.logo{font-size:28px;font-weight:800;color:#5f3bd4}.sub{color:#888;margin-top:3px}
+.spacer{flex:1}.icon{background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px 18px}
+.cart{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;border-radius:18px;padding:12px 18px;font-weight:700}
+.search{max-width:1100px;margin:0 auto 14px;padding:0 22px 16px}.search input{width:100%;padding:16px 20px;border:1px solid var(--line);border-radius:20px;background:#fafaff;outline:none}
+main{max-width:1100px;margin:auto;padding:30px 22px 80px}
+.hero{background:linear-gradient(135deg,#19152e,#7444ee);color:#fff;border-radius:36px;padding:44px;min-height:430px;display:flex;flex-direction:column;justify-content:center;box-shadow:0 20px 45px #4b37a329}
+.badge{width:max-content;padding:10px 18px;border:1px solid #ffffff35;border-radius:30px;background:#ffffff12}
+.hero h1{font-size:46px;line-height:1.3;max-width:650px;margin:28px 0 12px}.hero p{font-size:20px;line-height:1.8;max-width:700px;color:#eee}
+.actions{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}.primary,.secondary{padding:15px 25px;border-radius:17px}.primary{background:var(--p2);color:#fff}.secondary{background:#ffffff12;color:#fff;border:1px solid #ffffff35}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin:48px 0 18px}.section-head h2{font-size:32px;margin:0}.section-head p{color:var(--muted)}
+.filters{display:flex;gap:10px;overflow:auto;padding-bottom:8px}.filter{background:#fff;border:1px solid var(--line);border-radius:25px;padding:12px 20px;white-space:nowrap}.filter.active{background:var(--p);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.product{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:14px;position:relative;box-shadow:0 8px 25px #34266c0b}.pic{height:180px;border-radius:18px;background:linear-gradient(135deg,#eeeaff,#d9d0ff);display:flex;align-items:center;justify-content:center;font-size:64px}.fav{position:absolute;top:24px;left:24px;width:38px;height:38px;border-radius:50%;background:#fff}.product h3{margin:15px 4px 6px}.product p{margin:0 4px;color:var(--muted);font-size:14px}.row{display:flex;align-items:center;justify-content:space-between;margin-top:15px}.price{font-weight:800;font-size:18px}.add{background:var(--p);color:#fff;border-radius:13px;padding:10px 14px}
+.drawer{position:fixed;inset:0;background:#0006;z-index:50;display:none}.drawer.open{display:block}.panel{position:absolute;right:0;top:0;height:100%;width:min(430px,94vw);background:#fff;padding:22px;overflow:auto}.panel-head{display:flex;justify-content:space-between;align-items:center}.close{background:#f0eff5;border-radius:12px;padding:10px 14px}.cart-item{display:flex;gap:12px;align-items:center;border-bottom:1px solid var(--line);padding:15px 0}.mini{width:62px;height:62px;border-radius:14px;background:#eeeaff;display:grid;place-items:center;font-size:28px}.qty{display:flex;gap:7px;align-items:center;margin-top:7px}.qty button{width:28px;height:28px;border-radius:9px;background:#eeeaff}.total{font-size:21px;font-weight:800;margin:20px 0}.checkout{width:100%;padding:15px;border-radius:16px;background:var(--p);color:#fff}
+.empty{color:var(--muted);padding:35px 5px;text-align:center}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.hero{min-height:390px;padding:30px}.hero h1{font-size:37px}}
+@media(max-width:520px){.top{padding:12px 14px}.logo{font-size:23px}.icon{padding:10px}.cart{padding:10px 13px}main{padding:20px 14px 60px}.grid{grid-template-columns:repeat(2,1fr);gap:12px}.pic{height:135px;font-size:48px}.product{padding:10px;border-radius:18px}.hero{border-radius:28px}.hero h1{font-size:31px}.hero p{font-size:16px}.section-head h2{font-size:27px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <div><div class="logo">welcome</div><div class="sub">william store</div></div>
+    <div class="spacer"></div>
+    <button class="icon" onclick="alert('الحساب سيكون في الخطوة التالية')">👤 الحساب</button>
+    <button class="cart" onclick="openCart()">🛒 <span id="count">0</span></button>
+  </div>
+  <div class="search"><input id="search" placeholder="ابحث عن منتج، تطبيق، لعبة أو خلفية..." oninput="render()"></div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="badge">✨ متجر رقمي عصري</div>
+  <h1>كل ما تحبه،<br>في مكان واحد.</h1>
+  <p>خلفيات فخمة، تطبيقات، قوالب، ألعاب وحزم رقمية مختارة بعناية.</p>
+  <div class="actions"><button class="primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">تسوق الآن</button><button class="secondary" onclick="filterCat('خلفيات')">استكشف الخلفيات</button></div>
+</section>
+
+<div class="section-head" id="products"><div><h2>منتجاتنا</h2><p>اختر قسمًا أو ابحث عن منتج</p></div></div>
+<div class="filters">
+<button class="filter active" onclick="filterCat('الكل',this)">الكل</button>
+<button class="filter" onclick="filterCat('خلفيات',this)">🌌 خلفيات</button>
+<button class="filter" onclick="filterCat('تطبيقات',this)">📱 تطبيقات</button>
+<button class="filter" onclick="filterCat('ألعاب',this)">🎮 ألعاب</button>
+<button class="filter" onclick="filterCat('منتجات رقمية',this)">💎 منتجات رقمية</button>
+</div>
+<div class="grid" id="grid"></div>
+</main>
+
+<div class="drawer" id="drawer" onclick="if(event.target===this)closeCart()">
+ <aside class="panel">
+  <div class="panel-head"><h2>🛒 سلة المشتريات</h2><button class="close" onclick="closeCart()">✕</button></div>
+  <div id="cartItems"></div>
+  <div class="total">الإجمالي: <span id="total">0.00</span> $</div>
+  <button class="checkout" onclick="checkout()">إتمام الطلب</button>
+ </aside>
+</div>
+
+<script>
+const products=[
+{id:1,name:"خلفية ليلية فاخرة",cat:"خلفيات",price:2.99,icon:"🌌",desc:"خلفية عالية الجودة للموبايل"},
+{id:2,name:"حزمة خلفيات نيون",cat:"خلفيات",price:4.99,icon:"🌈",desc:"مجموعة خلفيات رقمية"},
+{id:3,name:"حزمة أيقونات موبايل",cat:"تطبيقات",price:3.99,icon:"📱",desc:"أيقونات عصرية جاهزة"},
+{id:4,name:"قالب متجر إلكتروني",cat:"منتجات رقمية",price:9.99,icon:"🛍️",desc:"قالب احترافي قابل للتخصيص"},
+{id:5,name:"حزمة ألعاب رقمية",cat:"ألعاب",price:7.99,icon:"🎮",desc:"حزمة ألعاب ومحتوى رقمي"},
+{id:6,name:"خلفية فخمة بنفسجية",cat:"خلفيات",price:2.49,icon:"💜",desc:"تصميم بنفسجي أنيق"},
+{id:7,name:"حزمة أدوات للمبدعين",cat:"منتجات رقمية",price:12.99,icon:"💎",desc:"أدوات وملفات جاهزة"},
+{id:8,name:"تطبيقات مميزة",cat:"تطبيقات",price:5.99,icon:"⚡",desc:"حزمة تطبيقات رقمية"}
+];
+let category="الكل",cart=JSON.parse(localStorage.getItem("williamCart")||"[]");
+function save(){localStorage.setItem("williamCart",JSON.stringify(cart));updateCart()}
+function filterCat(c,el){category=c;document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));if(el)el.classList.add("active");else document.querySelector(".filter").classList.add("active");render()}
+function render(){
+ let q=document.getElementById("search").value.trim().toLowerCase();
+ let list=products.filter(p=>(category==="الكل"||p.cat===category)&&(`${p.name} ${p.desc} ${p.cat}`.toLowerCase().includes(q)));
+ document.getElementById("grid").innerHTML=list.map(p=>`<article class="product"><button class="fav">♡</button><div class="pic">${p.icon}</div><h3>${p.name}</h3><p>${p.desc}</p><div class="row"><span class="price">$${p.price.toFixed(2)}</span><button class="add" onclick="add(${p.id})">أضف للسلة</button></div></article>`).join("")||'<div class="empty">لا توجد منتجات مطابقة.</div>';
+}
+function add(id){let x=cart.find(i=>i.id===id);x?x.qty++:cart.push({id,qty:1});save();openCart()}
+function remove(id){cart=cart.filter(i=>i.id!==id);save();renderCart()}
+function change(id,d){let x=cart.find(i=>i.id===id);if(!x)return;x.qty+=d;if(x.qty<1)remove(id);else save();renderCart()}
+function updateCart(){document.getElementById("count").textContent=cart.reduce((s,i)=>s+i.qty,0)}
+function renderCart(){
+ let box=document.getElementById("cartItems");
+ if(!cart.length){box.innerHTML='<div class="empty">السلة فارغة حاليًا 🛒</div>';document.getElementById("total").textContent="0.00";return}
+ let total=0;
+ box.innerHTML=cart.map(i=>{let p=products.find(x=>x.id===i.id);total+=p.price*i.qty;return `<div class="cart-item"><div class="mini">${p.icon}</div><div style="flex:1"><b>${p.name}</b><div class="qty"><button onclick="change(${p.id},-1)">−</button><span>${i.qty}</span><button onclick="change(${p.id},1)">+</button><button onclick="remove(${p.id})">🗑️</button></div></div><b>$${(p.price*i.qty).toFixed(2)}</b></div>`}).join("");
+ document.getElementById("total").textContent=total.toFixed(2)
+}
+function openCart(){document.getElementById("drawer").classList.add("open");renderCart()}
+function closeCart(){document.getElementById("drawer").classList.remove("open")}
+function checkout(){if(!cart.length)return alert("السلة فارغة");alert("تم تجهيز السلة. سنربط الدفع والطلبات في المرحلة التالية.");}
+render();updateCart();
+</script>
+</body>
+</html>
